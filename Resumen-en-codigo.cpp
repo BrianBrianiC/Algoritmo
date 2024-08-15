@@ -318,6 +318,28 @@ int main(int argc, char *argv[]) {
 	los operadores utilizados...
 	*/
 	cout<<"Evaluando 8 + 5 * 7 % 2 * 4 en C++: "<<8 + 5 * 7 % 2 * 4<<endl;
+	
+	/*
+	En este caso, el operador *(multiplicacion) y el operador %(modulo) tienen el mismo valor de precedencia
+	que a la vez es mayor al de la suma.Entonces, primero se va a ejecutar (5 * 7 % 2 * 4) comenzando
+	de izquierda a derecha y por ultimo se va a sumar el valor.
+	
+	8 + ( ((5 * 7)% 2) * 4)  
+	
+	8 + ( (35 % 2) *4)
+	
+	cualquier numero modulo dos siempre nos va a devolver o un 1 o un 0, en si siempre que trabajemos
+	el operador modulo, el resultado siempre va a rondar entre ( 0 , divisor-1 ) 
+	
+	8 + (1 * 4)
+	
+	8 + 4
+	
+	12
+	
+	Para asegurar que una operacion se ejecute de tal manera, podemos hacer uso de las comillas ()
+	
+	*/
 	return 0;
 }
 
