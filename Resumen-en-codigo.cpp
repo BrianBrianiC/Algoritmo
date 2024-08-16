@@ -2,10 +2,10 @@
 #include <iomanip>
 using namespace std;
 
-#define PI 3,1415 // CONSTANTE DEFINIDA
+#define PI 3,1415 // CONSTANTE DEFINIDA o GLOBAL
 
 /*
-Es visible para todo el programa y su valor no se puede alterar UNA VEZ DEFINIDA
+Es visible para todo el programa y su valor no se puede alterar UNA VEZ DEFINIDA y ocupa memoria durante todo el proceso del programa.
 
 	El identificador de una constante definida NO debe:
 
@@ -14,11 +14,21 @@ Es visible para todo el programa y su valor no se puede alterar UNA VEZ DEFINIDA
 	* No puede usar palabras reservadas del lenguaje
 */
 
-int main(int argc, char *argv[]) {
+int main() {
 	
 	//TIPOS DE DATOS
 	
+	/*
+	Enteros: 		int			ocupa 8bytes de memoria
 	
+	
+	
+	los char van con comillas simples '' y las cadenas de caracteres van con comillas ""
+	
+	*/
+	
+	char caracter='A';
+	char cadenaDeCaracteres[4]= "soy";		// se indica el tamaño del arreglo de caaracteres y siempre se guarda un espacio para el \0
 	
 	int A; //declararcion		se reserva espacio en la memoria
 	int B=2; //inicializaion	se pisa el valor basura por el que deseamos asignarle
@@ -33,17 +43,13 @@ int main(int argc, char *argv[]) {
 	
 	//CONSTANTES LITERALES
 	
-	cout<<12<<endl;
-	cout<<"12"<<endl;
-	cout<<0<<endl;
+	cout<<"Constante literal entera: "<<12<<endl;
+	cout<<"Constante literla de tipo char: "<<"12"<<endl;
 	
 	cout<<endl;
 	
 	/*
-	Una constante literal son los valores que escribimos nosotros:
-	Por ejemplo:
-	
-	cout<<12; es una constante literal entera.
+	Una constante literal son los valores que escribimos nosotros. Y NO OCUPAN ESPACIO EN LA MEMORIA.
 	*/
 	
 	//CONSTANTES DECLARDAS
@@ -56,6 +62,9 @@ int main(int argc, char *argv[]) {
 	Son constantes que una vez definidas no se puede cambiar su valor y visibles solo para el bloque general en el que son declaradas, es decir,
 	que la constante tambien sera visible para los bloques internos que existan, pero no para los bloques externos, a diferencia de 
 	las constantes globales tienen esta limitacion en su visibilidad.
+	
+	En cuanto a la memoria, la mismas unas vez declaradas ocupan espacio en la memoria hasta la finalizacion del bloque en donde fueron 
+	declaradas.
 	*/
 	{
 		//esto es un BLOQUE INTERNO
@@ -63,7 +72,9 @@ int main(int argc, char *argv[]) {
 		int x;
 		
 		/* Notese que no salta ningun error al redeclarar a la variable x, esto porque estamos en otro
-		bloque aparte, si intentara esto en el bloque general saldria error de sintaxis*/
+		bloque aparte, si intentara esto en el bloque general saldria error de sintaxis
+		La misma nace y muere dentro de este bloque, junto con el espacio que reserva en la memoria.
+		*/
 	}
 	
 	if(1){
@@ -108,8 +119,8 @@ int main(int argc, char *argv[]) {
 	cout<<fixed<<setprecision(int decimalesDespuesDeLaComa)<<valor; 	fija el tamaño, poniendo ceros a la derecha tantas veces como digitos falten.
 	*/
 	
-	cout<<"setprecision(2) de  4.567: "<<setprecision(2)<<4.567<<endl;
-	cout<<"setprecision(5) de  4.567: "<<setprecision(5)<<4.567<<endl;
+	cout<<"setprecision(2) de  4.567: "<<setprecision(2)<<4.567<<endl;						//para agregar rapido la libreria "CNTRL + H"
+	cout<<"setprecision(5) de  4.567: "<<setprecision(5)<<4.567<<endl;						//			  sobre la funcion
 	cout<<"fixed y setprecision(5) de  4.567: "<<fixed<<setprecision(5)<<4.567<<endl;
 	cout<<"setw(5) de 4.567: "<<setw(5)<<4<<endl;
 	cout<<"setfill y setw(5) de 4.567: "<<setfill('#')<<setw(5)<<4.567<<endl;
@@ -128,6 +139,12 @@ int main(int argc, char *argv[]) {
 	cout<<"valor del 12 en octal: "<<oct<<12<<endl;	
 	cout<<"valor de 12 en hexadecimal: "<<hex<<12<<endl;
 	
+	cout<<dec;
+	
+	/*  ¡¡ ALGO QUE ALCARAR SOBRE ESTAS ULTIMAS PROPIEDADES DE IOMANIP Y PASO DE SISTEMAS NUMERICOS ES QUE UNA VEZ DECLARADAS TODOS
+								LOS COUT SE VAN A MOSTRAR CON ESAS PROPIEDADES, NO HAY NECESIDAD DE REPETIRLAS!!
+	*/
+
 	//ENTRADA DE DATOS
 	
 	int x, y;
@@ -153,7 +170,7 @@ int main(int argc, char *argv[]) {
 	cout<<x<<endl;
 	cout<<y<<endl;
 	
-	//ASIGNACION A UNA VARIABLE DE UNA EXPRESION ALGEBRAICA
+	//CUIDAO CON ESTO
 	
 	int a=45,b=55;
 	
@@ -202,6 +219,22 @@ int main(int argc, char *argv[]) {
 	a/=3;		//es equivalente a "a = a/3"
 	
 	cout<<endl;
+	
+	// OPERADORES Y CHAR
+	
+	/*
+	Tambien se puede operar con variables de tipo char:
+	
+	Este tipo de dato esta definido en el codigo ASCII, es una tabla que muestra las difrentes combinaciones de bits que representan
+	alguna funcion o caracter en especifico, cuando trabajamos con un valor char, estamos trabajando con el conjunto de bits que lo representa 
+	en este codigo.
+	
+	Incremento/Decremento de una variable char:
+	
+	sumamos un uno al codigo binario que representa al valor de la variable.
+	ejemplo:
+			'a'+1 va a ser igual a 'b'
+	*/
 	
 	//OPERADORES RELACIONALES 
 	
@@ -360,7 +393,8 @@ int main(int argc, char *argv[]) {
 	Para asegurar que una operacion se ejecute de tal manera, podemos hacer uso de las comillas ()
 	
 	*/
-	
+	a=2;
+		
 	cout<<"Evaluando a * -1: "<<a*-1<<endl;
 	
 	/*
@@ -394,6 +428,51 @@ int main(int argc, char *argv[]) {
 	*/
 	
 	cout<<endl<<"Mostrando b=5: "<<int(b=5)<<endl;
+	
+	// INCONVENIENTES CON LAS OPERACIONES CON TIPOS DE DATOS DE PUNTO FLOTANTE Y PUNTO FLOTANTE DE DOBLE PRECISION
+	
+	/*
+	Hay un tema importante en estos tipos de dato (de punto flotante) que es su precision, que es esto? es al cantidad de digitos precisos que
+	toma el tipo de dato, mas alla de esa cantidad no podemos asegurarnos con certeza de que el resultado sea el esperado.
+	*/
+	
+	float X=100.0/3.0;
+	
+	if(X*3 == 10)
+		cout<<"Son iguales"<<endl;
+	else
+		cout<<endl<<"No son iguales"<<endl;
+	
+	cout<<endl<<"X: "<<setprecision(9)<<X<<endl;
+	
+	
+	// Matematicamente esperariamos que nos salga por pantalla que los numeros son iguales, pero en realidad esto no es asi
+	// ya que tendriamos un 33.33... periodico y comoo se sabe solo obtenemos 7 digitos de precision (CONTANDO LA PARTE ENTER) y los demas digitos
+	// serian datos erroneos.
+	
+	// POR ESTO HAY QUE SABER CON QUE TIPO DE DATO TRABAJAR!
+	
+	// Si el rango de numeros supera los 7 digitos no se recomienda trabajar con float
+	
+	//			float: 7 digitos
+	//			double: 15 digitos
+	//		long double: 19 digitos
+	
+	
+	//CONVERSION DE TIPOS DE DATOS
+	
+	/*
+	Existen metodos semanticos para convertir un valor (no tipo de dato) dado en un tipo de dato a otro:
+	
+		* Cuando se asigna un valor de un tipo a una variable de otro tipo.
+		* Cuando se combinan tipos de datos en expresiones
+		* Cuando se pasasn argumentos a funciones
+	
+	tipo
+	*/
+	caracter='-';
+	
+	cout<<endl<<(int)('-'+2);
 	
 	return 0;
 }
