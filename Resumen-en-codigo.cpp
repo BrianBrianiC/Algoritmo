@@ -57,6 +57,14 @@ int main(int argc, char *argv[]) {
 	que la constante tambien sera visible para los bloques internos que existan, pero no para los bloques externos, a diferencia de 
 	las constantes globales tienen esta limitacion en su visibilidad.
 	*/
+	{
+		//esto es un BLOQUE INTERNO
+		
+		int x;
+		
+		/* Notese que no salta ningun error al redeclarar a la variable x, esto porque estamos en otro
+		bloque aparte, si intentara esto en el bloque general saldria error de sintaxis*/
+	}
 	
 	if(1){
 		const int A1 = 2;
@@ -178,6 +186,15 @@ int main(int argc, char *argv[]) {
 	
 	cout<<"el valor de a decrementado en 1 de la segunda forma: "<<a<<endl;
 	
+	a=1;
+	b=1;
+	
+	cout<<endl<<"esto es lo que pasa con el preincremento y postcremento: "<<++a<<" "<<b++<<endl;
+	
+	//Se podria suponer que en este caso se nos mostrara de pantalla como resultadoun 1 y 2
+	//pero no es asi como funciona, la situacion real es que en el postincremento (como en el postdecremento)
+	//primero se muestra por pantalla el valor de "b" y luego lo incrementa
+	
 	// en el primer caso, primero se incrementa a y despues se le asigna el valor, y en el segundo caso primero se le asigna el valor de a y despues se le incrementa
 	
 	a*=3;		//es equivalente a "a = a*3"
@@ -246,6 +263,9 @@ int main(int argc, char *argv[]) {
 	
 	cout<<"Resultado del operador menor o igual entre 12 y 12: "<<R<<endl;
 	
+	/* La libreria <cstdlib> nos otorga la propiedad boolalpha que nos muestra true(1) o false(0)*/
+	
+	cout<<"Resultado del operador menor o igual entre 12 y 12 usando boolalpha: "<<boolalpha<<R<<endl;
 	
 	//OPERADORES LOGICOS BOOLEANOS
 	
@@ -304,11 +324,11 @@ int main(int argc, char *argv[]) {
 	
 	//ESTO ESTA MAL SEMANTICAMENTE
 	
-	//	cout<<"Se evalua (32)&&(22) : "<<(32)&&(22)<<endl;		se tiene que enc
+	//	cout<<"Se evalua (32)&&(22) : "<<(32)&&(22)<<endl;		
 	
 	//OPERADOR CONDICIONAL
 	
-	//C++ tiene un unico operador condicional que es
+	//C++ tiene un unico operador condicional que es ?: OPERADOR TERNARIO
 	
 
 	// PRECEDENCIA O ASOCIATIVIDAD DE LOS OPERADORES
@@ -340,6 +360,41 @@ int main(int argc, char *argv[]) {
 	Para asegurar que una operacion se ejecute de tal manera, podemos hacer uso de las comillas ()
 	
 	*/
+	
+	cout<<"Evaluando a * -1: "<<a*-1<<endl;
+	
+	/*
+	En este caso tenemos al operador UNARIO que afecta al constante literaria 1. Entonces va a pasar
+	lo siguiente, primero el que tieme mayot precedencia es el operador UNITARIO "-" asi que primero
+	cambia el valor de 1 a -1 y despues se multiplica por la variable "a".
+	*/
+	x=18;
+	
+	cout<<"Evaluando la siguiente operacion not valor or 3 > 5 or true: "<<(not x or -3 > 5 or true)<<endl;
+	
+	/*
+	1- Se aplica el operador UNITARIO a x ya que aplican de derecha a izquierda y convierte a esta x
+	en un cero. Recordemos que cualquier numero distinto de cero se considera falso(0), al ser 18 la 
+	la sentencia !18 retorna un cero (false).
+	
+	2- Se evalua el operador RELACIONAL 
+	
+	3- Se evaluan los operadores LOGICOS
+	*/
+	
+	// OPERADORES QUE OPERAN DE DERECHA A IZQUIERDA
+	
+	int c;
+	
+	a=b=c=0;	//todos cero
+	
+	/* En esta operacion tenemos al operador ASIGNACION y su asociatividad de de DERECHA a IZXQUIERDA,
+	entonces lo que sucederia en este caso es que primero a la variable "c" se le asigna el valor de 0,
+	luego a "b" se le asigna "c" y por ultimo a "a" se le asigna "b", quedando todos con valor cero.
+	*/
+	
+	cout<<endl<<"Mostrando b=5: "<<int(b=5)<<endl;
+	
 	return 0;
 }
 
