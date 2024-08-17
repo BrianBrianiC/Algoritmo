@@ -27,8 +27,21 @@ int main() {
 	
 	*/
 	
+	// EJEMPLOS Y CURIOSIDADES
+	
 	char caracter='A';
 	char cadenaDeCaracteres[4]= "soy";		// se indica el tamaño del arreglo de caaracteres y siempre se guarda un espacio para el \0
+	
+	caracter=(char)126;
+	
+	cout<<endl<<(char)(caracter + 2); 
+	
+	int entero=2147483647;					//valor limite positivo de los tipo de dato enetros
+	
+	cout<<endl<<entero + 1<<endl;			//si le sumamos uno nos manda al valor limite negativo, como si fuera un ciclo cerrado
+	
+	
+	//VARIABLES
 	
 	int A; //declararcion		se reserva espacio en la memoria
 	int B=2; //inicializaion	se pisa el valor basura por el que deseamos asignarle
@@ -468,11 +481,30 @@ int main() {
 		* Cuando se combinan tipos de datos en expresiones
 		* Cuando se pasasn argumentos a funciones
 	
-	tipo
-	*/
-	caracter='-';
+	optipo es una operacion que da lugar a un valor de ese tipo de dato
+
+	1) 
 	
-	cout<<endl<<(int)('-'+2);
+	int= opint/opint;		Esta operacione entre los dos valores enteros me origina un nuevo valor de tipo int
+	
+	int= int;				El valor que se asigna es entero
+	
+	2)
+	
+	float= opint/opint;		Esta operacione entre los dos valores enteros me origina un nuevo valor de tipo int
+	
+	float = int;		En este punto uno podria imaginar que el resultado que se asignaria es entero, pero en realidad
+							lo que ocurre es que trunca el valor de la operacione al tipo de dato float.
+	
+	var = (float)(opint/opint);	Algo asi, toma el valor flotante de la operacion
+	
+	3)
+	
+	int= opint/opfloat;  O  int= opfloat/opint;	 Esta operacion entre un valor int y uno float nos origina un nuevo valor de tipo float
+	
+	int= float;					En este punto lo que sucede es que la variable entera toma el valor entero de la operacion
+	*/
+
 	
 	return 0;
 }
