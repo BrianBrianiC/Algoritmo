@@ -14,18 +14,86 @@ Es visible para todo el programa y su valor no se puede alterar UNA VEZ DEFINIDA
 	* No puede usar palabras reservadas del lenguaje
 */
 
+
+
 int main() {
+	
+	
+	//C++ es un lemguaje compilado del tipo multiparadigma, compilaoo quiere decir que trata
+	//el programa completa(no como un lenguaje que interpreta), lee y analiza todo.
+	
+	
+	
+	/*
+	METODO DE PROGRAMACION ESTRUCTURADA:
+	
+		* organizamos nuestro programa en modulos, es una unidad de codigo que resuelve
+		un problema particular.
+	
+		* Pensamos el problema general como un conjunto de mini-problemas que vamos resolviendo en modulos
+		la ida es continuar con este proceso para llegar a un prolema mucho mas simple.
+	
+		* Cada modulo se resuelve utilizando las 3 estructuras basicas de control
+	
+	TEOREMA FUNDAMENTAL DE LA PE:
+	
+	"Todo programa propioo puede ser resuelto usando solo las estructuras de control basicas"
+	
+	Se le dice programa "Propio" como un programa que tiene un unico punto de entra y uno de salida,
+	no existen bucles (se resuelve en un tiempo finito) y no existe bloques rredundantes que no aporteen
+	a la solucion de nuestro problema.
+	
+	*/
+	
+	
+	
+	//COMPILACION Y EJECUCION DE UN PROGRAMA:
+	
+	/*
+	
+	1)	Escribimos codigo en el EDITOR
+	
+	2)  Se guarda el archivo del programa convirtiendose en un programa fuente(.cpp)
+	
+	3) 	Compilamos el programa fuente y se traduce a lenguaje maquina, este trabajo
+	lo realiza el compilador con el sistema operativo. Recordar que la maquina solo entiende
+	lenguaje maquina y no otro.
+	
+		Errores de programa:
+	
+		* Errores de sintaxis
+		* Errores logicos
+		* Errores de maquina
+	
+	4) Si NO hay errores se obtien el programa objeto ya traducido
+	
+	5) Luego ocurre un montaje/enlace/ligacion de los archivos y biblotecas del compilador
+	que hayamos usado para unirlo en el sitio donde fueron llamados con el programa objeto
+	obteniendo lo que seria el ejecutable del programa.
+	
+	5) Se ejecuta y se crea un archivo.exe del mismo
+	*/
+	
+	
 	
 	//TIPOS DE DATOS
 	
 	/*
-	Enteros: 		int			ocupa 8bytes de memoria
+	
+	SIMPLES:
+	
+	COMPUESTOS:
+	
+	
+	Enteros: 		int			ocupa 8 bytes de memoria
 	
 	
 	
 	los char van con comillas simples '' y las cadenas de caracteres van con comillas ""
 	
 	*/
+	
+	
 	
 	// EJEMPLOS Y CURIOSIDADES
 	
@@ -40,6 +108,15 @@ int main() {
 	
 	cout<<endl<<entero + 1<<endl;			//si le sumamos uno nos manda al valor limite negativo, como si fuera un ciclo cerrado
 	
+	/*
+	El valor limite de cada tipo de dato son la unidad (11111...) y si le sumamos un 1 nos quedaria la unidad seguida de ceros
+	quedando en el bit mas significativa un uno, que se podria interpretar como el bit de signo de nuestro nuevo valor y para ver
+	el valor de este nuevo dato, mediante complemento nos queda el valor inicial. 
+	En el caso de los unsigned no se toma en cuenta el bit de signo y recordar que el cero forma parte de los positivos.
+
+	*/
+	
+	
 	
 	//VARIABLES
 	
@@ -53,6 +130,8 @@ int main() {
 	cout<<A<<" "<<B<<endl;	//PARA VER EL VALOR ALMACENADO EN LAS VARIABLES
 	
 	cout<<endl;
+	
+	
 	
 	//CONSTANTES LITERALES
 	
@@ -109,6 +188,7 @@ int main() {
 	cout<<endl;
 	
 	
+	
 	//EXPRESIONES EN C++
 	
 	/*
@@ -116,6 +196,8 @@ int main() {
 	la evaluacion de expresiones en las que se mezclan operadores con operandos. Cuando en una expresion se usa mas de un operador, se necesita conocer 
 	la precedencia de cada operador y su asociatividad
 	*/
+	
+	
 	
 	// MANIPULACION DE LA SALIDA DE DATOS MEDIANTE EL COMANDO "cout"
 	
@@ -138,6 +220,8 @@ int main() {
 	cout<<"setw(5) de 4.567: "<<setw(5)<<4<<endl;
 	cout<<"setfill y setw(5) de 4.567: "<<setfill('#')<<setw(5)<<4.567<<endl;
 	
+	
+	
 	//PASAJE A SISTEMA NUMERICO
 	
 	/*
@@ -158,6 +242,8 @@ int main() {
 								LOS COUT SE VAN A MOSTRAR CON ESAS PROPIEDADES, NO HAY NECESIDAD DE REPETIRLAS!!
 	*/
 
+	
+	
 	//ENTRADA DE DATOS
 	
 	int x, y;
@@ -168,12 +254,16 @@ int main() {
 	
 	cout<<endl<<x<<endl;
 	
+	
+	
 	//Se puede ingresar mas de un dato
 	
 	cout<<"ingrese datos para x e y: ";
 	cin>>x>>y;
 	
 	cout<<endl;
+	
+	
 	
 	//ASIGNACION A UNA VARIABLE DE UNA CONSTANTE LITERAL
 	
@@ -197,6 +287,8 @@ int main() {
 	Como C++ es un lenguaje secuencial, en este procedimiento primero se asigna el valor de la variable b a la variable a, despues en la otra sentencia
 	se le asigna a b el valor de a, pero a tiene el valor de b, entonces le queda el mismo valor.
 	*/
+	
+	
 	
 	//ABREVIACION DE ALGUNAS OPERACIONES RAPIDAS EN C++
 	
@@ -233,6 +325,8 @@ int main() {
 	
 	cout<<endl;
 	
+	
+	
 	// OPERADORES Y CHAR
 	
 	/*
@@ -248,6 +342,8 @@ int main() {
 	ejemplo:
 			'a'+1 va a ser igual a 'b'
 	*/
+	
+	
 	
 	//OPERADORES RELACIONALES 
 	
@@ -313,6 +409,9 @@ int main() {
 	
 	cout<<"Resultado del operador menor o igual entre 12 y 12 usando boolalpha: "<<boolalpha<<R<<endl;
 	
+	
+	
+	
 	//OPERADORES LOGICOS BOOLEANOS
 	
 	/*
@@ -372,11 +471,16 @@ int main() {
 	
 	//	cout<<"Se evalua (32)&&(22) : "<<(32)&&(22)<<endl;		
 	
+	
+	
+	
 	//OPERADOR CONDICIONAL
 	
 	//C++ tiene un unico operador condicional que es ?: OPERADOR TERNARIO
 	
-
+	
+	
+	
 	// PRECEDENCIA O ASOCIATIVIDAD DE LOS OPERADORES
 	
 	/* 
@@ -429,6 +533,9 @@ int main() {
 	3- Se evaluan los operadores LOGICOS
 	*/
 	
+	
+	
+	
 	// OPERADORES QUE OPERAN DE DERECHA A IZQUIERDA
 	
 	int c;
@@ -441,6 +548,9 @@ int main() {
 	*/
 	
 	cout<<endl<<"Mostrando b=5: "<<int(b=5)<<endl;
+	
+	
+	
 	
 	// INCONVENIENTES CON LAS OPERACIONES CON TIPOS DE DATOS DE PUNTO FLOTANTE Y PUNTO FLOTANTE DE DOBLE PRECISION
 	
@@ -470,6 +580,9 @@ int main() {
 	//			float: 7 digitos
 	//			double: 15 digitos
 	//		long double: 19 digitos
+	
+	
+	
 	
 	
 	//CONVERSION DE TIPOS DE DATOS
