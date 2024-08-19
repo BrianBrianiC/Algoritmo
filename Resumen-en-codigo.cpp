@@ -616,9 +616,128 @@ int main() {
 	int= opint/opfloat;  O  int= opfloat/opint;	 Esta operacion entre un valor int y uno float nos origina un nuevo valor de tipo float
 	
 	int= float;					En este punto lo que sucede es que la variable entera toma el valor entero de la operacion
+	
+	
+	Siempre pasa esto, siempre se trunca el valor al tipo de dato al que se le asigna el valorde la expresion!!!!
 	*/
+	
+	
+	x=12;
+	double Y= 4;
+	
+	cout<<fixed<<setprecision(3);
+	
+	Y = x + Y;
+	cout<<"esto es x+y:  "<<Y<<endl;
+	
+	Y= x/5;
+	cout<<endl<<"esto es y/5:  "<<Y<<endl;
+	
 
 	
+	//ESTRUCTURAS BASICAS DE CONTROL:
+	
+	/*
+	ESTRUCTURAS DE SELECCION:
+	
+	
+	SENTENCIA IF:
+	
+	if(condicion){
+		sentencias1...		Este bloque se ejecuta solo si la condicion es "true" o devuelve algun numero distinto de cero
+	}else{
+		sentencias2...		Este otro bloque se ejecuta si la condicion es "false" o devuelve un cero
+	}
+	
+	if(condicion)			Estructura de un if sin la utilizacion de bloques, recordemos que un bloque se considera un a sentencia que contiene un 
+		sentenciaTrue		conjunto de sentecias dentro.
+	else
+		sentenciaFalse
+	
+	if(condicion)			Esta es la estructura de una sentencia if incompleta, asi se le llama.
+		sentenciaTrue
+	
+	
+	SENTENCIA SWITCH;
+	
+	switch(variableSelectora){										Esta sentencia se basa en una variable selectora la cual va a ser la indicadora
+
+	case valorconstante1:											de que bloque se va a ejecutar analizando si toma algun valor de las 
+
+	sentencias..													constantes "valorconstante",
+	break;
+	
+	case valorconstante2:											Es importante aclarar y tener cuidado con que estas constantes no tengan el
+	
+	sentencias..													mismo valor, ya que una vez que se ejecuta un bloque, al finalizarlo, directamente sal de la sentencia
+	break;
+	
+	case valorconstante3:
+	
+	sentencias..
+	break;
+	
+	case valorconstante4:
+	
+	sentencias..
+	break;
+	
+	defoult:														En caso de que no sea ninguno de los casos especificados, se ejecuta este bloque
+	
+	sentencias...
+	break;
+	}
+
+	*/
+	
+	//ESTRUCTURAS REPETITIVAS
+	
+	/*
+	BUCLE FOR:
+	
+	Se utlilza cuando es necesario realizar una sentencia una cantidad especifica de veces.
+	
+	for(int i=valor; condicionde la variable de control; incremento/decremento de la misma){
+	
+		SentenciasDelBucle...
+	
+	}
+	
+	BUCLE WHILE:
+	
+	Se utiliza cuando es necesario relizar un conjunto de sentencias hasta que se cumpla cierta condicion, no tiene
+	una cantidad de iteraciones definida.
+	
+	while(condicion){
+	
+		Sentencias..
+	
+		Operacion que en algun punto detenta el bucle;
+	}
+	
+	
+	BUCLE DO-WHILE:
+	
+	Esta se ejecuta siempre una vez, ya que no posee una condicion inicial para entrar al primer bloque, mientras la condicion del while se siga
+	cumpliendo el bucle se ejecutara tantas veces sea necesario.
+	
+	do{							
+	
+		Sentencias...
+	
+	}while(condicion);
+	
+	casos especial donde se necesita verificar la entrada de datos:
+	
+	Quiero que se ingresen datos tal que x>y
+	
+	do{							
+	
+	cin>>x>>y;
+	
+	}while(not(x>y));					Esta forma de armar la condiion suele ser muy util, solo negamos lo que queremos obtener y asi se repetira siempre lo que no se cumpla
+	
+	*/
 	return 0;
 }
 
