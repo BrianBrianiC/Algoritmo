@@ -5,6 +5,77 @@
 #include <windows.h>
 using namespace std;
 
+/*
+* ========================================================
+*                 FUNCIONES RECURSIVAS EN C++
+* ========================================================
+* 
+* DEFINICIÓN:
+* Una función recursiva es aquella que se llama a sí misma
+* durante su ejecución para resolver un problema dividiéndolo
+* en subproblemas más pequeños del mismo tipo.
+* 
+* CARACTERÍSTICAS PRINCIPALES:
+* 1. Caso Base: Condición que detiene la recursión (sin esto,
+*    la función se llamaría infinitamente)
+* 2. Caso Recursivo: Donde la función se llama a sí misma
+*    con un subproblema más pequeño
+* 
+* ANALOGÍA:
+* Es como un juego de muñecas rusas (matryoshka):
+* - Cada muñeca abre para revelar otra más pequeña (llamada recursiva)
+* - Hasta llegar a la más pequeña que no se puede abrir (caso base)
+
+
+ FUNCIÓN RECURSIVA FIBONACCI
+
+ La sucesión de Fibonacci es una serie numérica donde:
+* - Fibonacci(0) = 0 (Caso base 1)
+* - Fibonacci(1) = 1 (Caso base 2)
+* - Fibonacci(n) = Fibonacci(n-1) + Fibonacci(n-2) (Caso recursivo)
+* 
+ Esta implementación recursiva es directa pero ineficiente para números grandes
+ porque recalcula los mismos valores muchas veces (O(2^n) en complejidad temporal)
+
+
+* CONSIDERACIONES IMPORTANTES:
+* 1. Siempre debe existir un caso base que termine la recursión
+* 2. Cada llamada recursiva debe acercarse al caso base
+* 3. La recursión consume memoria (pila de llamadas)
+* 4. Puede ser menos eficiente que soluciones iterativas
+* 5. Pero es más elegante para ciertos problemas
+
+*/
+
+int fibonacci(int n) {
+	// CASO BASE 1: Si n es 0, retorna 0
+	if (n == 0) {
+		return 0;
+	}
+	// CASO BASE 2: Si n es 1, retorna 1
+	else if (n == 1) {
+		return 1;
+	}
+	// CASO RECURSIVO: Suma los dos números anteriores en la secuencia
+	else {
+		return fibonacci(n - 1) + fibonacci(n - 2);
+	}
+}
+
+/*
+* VISUALIZACIÓN DEL ÁRBOL DE LLAMADAS (para n=4):
+* 
+*               fib(4)
+*              /      \
+*         fib(3)      fib(2)
+*        /     \      /    \
+*   fib(2) fib(1) fib(1) fib(0)
+*   /    \
+* fib(1) fib(0)
+* 
+* Nota: fib(1) y fib(0) se calculan múltiples veces
+*/
+
 int cantDig(int N);
 int cantDigPares(int N);
 bool tieneDigPares(int N);
