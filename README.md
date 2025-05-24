@@ -1,4 +1,4 @@
-# 📘 Apuntes y Ejemplos de C++ – Cátedra de Programación
+# 📘 Apuntes y Ejemplos de C++ – Algoritmos y Estructuras de Datos UTN
 
 ¡Bienvenidos al repositorio! 👨‍🏫👩‍🏫  
 Este espacio fue creado con el objetivo de brindarles a los estudiantes una colección de **apuntes**, **ejercicios resueltos** y **código comentado en C++**, para acompañarlos durante el cursado de la materia.
