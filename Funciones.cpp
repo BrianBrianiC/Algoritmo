@@ -104,8 +104,10 @@ int fibonacci(int n) {
 bool esPrimo(int);
 void contDig(int, int&);
 void intercambiar(int &a, int &b);
-
-
+int invertirNumero(int num);
+bool esPrimo(int num);
+int factorial(int n);
+int sumaDigitos(int num);
 
 int main(int argc, char *argv[]) {
 	
@@ -177,7 +179,96 @@ int main(int argc, char *argv[]) {
 	cout<<"Ahora este es el valor de x: "<<x<<endl;
 	cout<<"Y ahora este es el valor de y: "<<y<<endl;
 	
+	
+	// ALGORITMO DE OPERAR ENTRE DOS VALORES
+	
+	/*
+	Explicación del recorrido de números entre A y B:
+	
+	1) Caso A=2, B=5:
+	Si queremos recorrer los números que están *entre* A y B, podemos usar un ciclo for 
+	que vaya desde A+1 hasta B-1 (excluyendo A y B).
+	
+	Usamos 'for' porque sabemos exactamente desde dónde hasta dónde queremos iterar.
+	
+	Ejemplo:
+	for(int i = A + 1; i < B; i++) {
+	// Aquí podemos hacer operaciones con los números entre A y B,
+	// sin incluir A ni B.
+	}
+	
+	2) Caso A=5, B=2:
+	Para cubrir este caso donde A es mayor que B, intercambiamos los valores de A y B
+	para que el recorrido siempre vaya de menor a mayor.
+	
+	Ejemplo:
+	if (A > B) {
+	int aux = A;
+	A = B;
+	B = aux;
+	}
+	
+	3) Caso A = B = 2:
+	En este caso no hay números entre A y B porque son iguales, así que el for no se ejecutará.
+	
+	Algoritmo final:
+	
+	if (A > B) {
+	int aux = A;
+	A = B;
+	B = aux;
+	}
+	
+	for(int i = A + 1; i < B; i++) {
+	// Operaciones con números entre A y B (sin incluirlos)
+	}
+	*/
+	
 	return 0;
+}
+int sumaDigitos(int num) {
+	int suma = 0;
+	while (num > 0) {
+		suma += num % 10;
+		num /= 10;
+	}
+	return suma;
+}
+int factorial(int n) {
+	int resultado = 1;
+	for (int i = 2; i <= n; i++) {
+		resultado *= i;
+	}
+	return resultado;
+}
+bool esPrimo(int num) {
+	bool primo = true;
+	
+	if (num == 1) {
+		primo = false;  //ACORDARSE  DE LA DEFINICION DE NUMERO PRIMO TIENE QUE TENER 2 DIVISORES
+	} else {			// Y EL UNO TIENE UN SOLO DIVISOR QUE ES EL MISMO, POR ESO ESTE CASO
+		int i = 2;
+		int limite = sqrt(num); // esto sale de un teorema que ahora no me acuerdo :v
+		while (i <= limite && primo) {
+			if (num % i == 0) {
+				primo = false;
+			}
+			i++;
+		}
+	}
+	
+	return primo;
+}
+int invertirNumero(int num) {  //EN ESTE CASO SE TOMA QUE EL ENTERO ES SIEMPRE POSITIVO
+	int invertido = 0;
+	
+	while (num > 0) {
+		int digito = num % 10;
+		invertido = invertido * 10 + digito;
+		num /= 10;
+	}
+	
+	return invertido;
 }
 void contDig(int numeroIngreso, int& contadorCifras){  	// PREOCEDIMIENTO. numeroIngreso se pasa por VALOR y contadorCifras se pasa por REFERENCIA 
 	
