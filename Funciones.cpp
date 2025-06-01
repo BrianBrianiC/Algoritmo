@@ -280,25 +280,6 @@ void contDig(int numeroIngreso, int& contadorCifras){  	// PREOCEDIMIENTO. numer
 	}
 	
 }
-bool esPrimo(int numeroAnalizar){	// FUNCION
-	
-	bool esPrimo = true;  
-	
-	//CASOS BASES
-	if (numeroAnalizar < 2) {
-		esPrimo = false;  
-	}
-	
-	int i = 2;  
-	while (i < numeroAnalizar && esPrimo) {  
-		if (numeroAnalizar % i == 0) {
-			esPrimo = false;  
-		}
-		i++;
-	}
-	
-	return esPrimo;
-}
 void intercambiar(int &a, int &b) {
 	int temp = a;
 	a = b;
