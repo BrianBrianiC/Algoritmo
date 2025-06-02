@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstdlib> 	// rand() y srand()
 #include <ctime>	// rand()
+#include <cmath>
 using namespace std;
 
 
@@ -98,16 +99,19 @@ int fibonacci(int n) {
 }
 
 
-
-
 //	PROTOTIPO: SE LE AVISA AL COMPILADOR QUE MAS ADELANTE ESTA DEFINIDA ESTA FUNCION, QUE EXISTE.
 bool esPrimo(int);
 void contDig(int, int&);
+int contDig2(int);
+int pot(int b, int e);
 void intercambiar(int &a, int &b);
 int invertirNumero(int num);
+int invertirNumero2(int n);
 bool esPrimo(int num);
 int factorial(int n);
 int sumaDigitos(int num);
+
+
 
 int main(int argc, char *argv[]) {
 	
@@ -224,6 +228,10 @@ int main(int argc, char *argv[]) {
 	}
 	*/
 	
+	int numinv;
+	cin>>numinv;
+	cout<<endl << "numero invertido: "<< invertirNumero2(numinv)<<endl;
+	
 	return 0;
 }
 int sumaDigitos(int num) {
@@ -259,6 +267,13 @@ bool esPrimo(int num) {
 	
 	return primo;
 }
+int pot(int b, int e){
+	int s=1;
+	for(int i=0; i<e; i++){
+		s*=b;
+	}
+	return s;
+}
 int invertirNumero(int num) {  //EN ESTE CASO SE TOMA QUE EL ENTERO ES SIEMPRE POSITIVO
 	int invertido = 0;
 	
@@ -270,6 +285,14 @@ int invertirNumero(int num) {  //EN ESTE CASO SE TOMA QUE EL ENTERO ES SIEMPRE P
 	
 	return invertido;
 }
+int invertirNumero2(int n){
+	int invertido=0, cdig=contDig2(n);
+	for(int i=0; i<cdig; i++){
+		invertido+= n%10 * pot(10,cdig-1-i);
+		n/=10;
+	}
+	return invertido;
+}
 void contDig(int numeroIngreso, int& contadorCifras){  	// PREOCEDIMIENTO. numeroIngreso se pasa por VALOR y contadorCifras se pasa por REFERENCIA 
 	
 	numeroIngreso = abs(numeroIngreso);
@@ -279,6 +302,14 @@ void contDig(int numeroIngreso, int& contadorCifras){  	// PREOCEDIMIENTO. numer
 		numeroIngreso /= 10;
 	}
 	
+}
+int contDig2(int n){
+	int cont=1;
+	while(n>=10){
+		cont++;
+		n/=10;
+	}
+	return cont;
 }
 void intercambiar(int &a, int &b) {
 	int temp = a;
