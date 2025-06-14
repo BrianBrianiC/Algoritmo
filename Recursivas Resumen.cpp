@@ -87,6 +87,7 @@ bool capicua(int n);
 int maxDig(int n);
 int prodNum(int x, int y);
 double potencia(double x,int y);
+int decBin(int n);
 int binDec(int n);
 int conejos(int meses);
 void cuentaRegresiva(int seg);
@@ -184,7 +185,7 @@ int main(int argc, char *argv[]) {
 	
 	cuentaRegresiva(seg);
 	
-	system("pause");*/
+	system("pause");
 	
 	int a,b;
 	
@@ -281,6 +282,8 @@ int inverso(int n){
 	
 	return s;
 }
+	
+//Otra manera es calcular el inverso y ver si son iguales... 
 bool capicua(int n){
 	bool s=0;
 	int cant=cantDig(n);
@@ -288,8 +291,11 @@ bool capicua(int n){
 	if(cantDig(n)==1 or (cantDig(n)==2 and n/10==n%10)){
 		s=1;
 	}else{
-		if(n/(int)(pow(10,cant-1))== n%10)
-			s = capicua(n%((int)(pow(10,cant-1))/10));
+		if(n/(int)(pow(10,cant-1))== n%10){
+			n = n%(int)(pow(10,cant-1));
+			n = n/10;
+			s = capicua(n);
+		}
 	}
 	return s;
 }	
@@ -330,6 +336,13 @@ double potencia(double x, int y){
 	}
 	
 	return s;
+}
+int decBin(int n){
+	if(n==1 or n==0){
+		return n;
+	}else{
+		return decBin(n/2)*10 + n%2;
+	}
 }
 int binDec(int n){
 	int s=0;
