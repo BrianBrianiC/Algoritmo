@@ -134,6 +134,7 @@ int main() {
 	
 	
 	//CONSTANTES LITERALES
+//	Constantes que no tienen asociado algun identificador, vienen en el lenguaje
 	
 	cout<<"Constante literal entera: "<<12<<endl;
 	cout<<"Constante literla de tipo char: "<<"12"<<endl;
@@ -326,6 +327,15 @@ int main() {
 	cout<<endl;
 	
 	
+//	CASO ESPECIAL
+	
+	int li;
+	
+	li = ++a/b++%2 = 10;
+	
+//	ESTO DA UN ERROR, ESTAMOS QUERIENDO ASIGNAR UN VALOR A UNA CONSTANTE LITERAL. EL OPERADOR ASIGNACION
+//	TIENE LA FUNCION DE ASIGNAR A VARIABLES UNICAMENTE!!!!
+	
 	
 	// OPERADORES Y CHAR
 	
@@ -415,6 +425,7 @@ int main() {
 	//OPERADORES LOGICOS BOOLEANOS
 	
 	/*
+	
 	!(expresion) 		Es la negacion, niega el valor otorgado por la expresion, o bien toma el valor de la funcion opuesta a la expresion de adentro 
 	
 	
@@ -440,6 +451,14 @@ int main() {
 	
 	*/
 	
+	
+	
+	//OPERADOR MODULO  	a%b con a,b enteros y b distinto de cero...
+	
+//	Es la operacion modulo que posiblemente ya vieron en logica discreta. La misma nos devuelve el resto de la division
+//	entera ENTRE DOS NUMEROS ENTEROS. Tambien, al salir su definicion de una division, se tiene que cumplir las mismas 
+//	restricciones para la misma. NO SE PUEDE HACER UNA DIVISION POR CEROOO!!!.
+		
 	cout<<endl;
 	
 	x=11;
@@ -703,16 +722,17 @@ int main() {
 	
 	}
 	
-	BUCLE WHILE:
+	BUCLE WHILE: "EL MÁS GENERAL DE TODOS"
 	
 	Se utiliza cuando es necesario relizar un conjunto de sentencias hasta que se cumpla cierta condicion, no tiene
-	una cantidad de iteraciones definida.
+	una cantidad de iteraciones definida.Esta estructura es capaz de simular a todas las demas estructuras repetitivas
+	que vimos.
 	
 	while(condicion){
 	
 		Sentencias..
 	
-		Operacion que en algun punto detenta el bucle;
+		Operacion que en algun punto detenga el bucle;
 	}
 	
 	
@@ -738,6 +758,39 @@ int main() {
 	}while(not(x>y));					Esta forma de armar la condiion suele ser muy util, solo negamos lo que queremos obtener y asi se repetira siempre lo que no se cumpla
 	
 	*/
+	
+	
+																//MAS CASOS ESPECIALES
+	
+	unsigned int r = -8; 
+	
+//	  Aunque podríamos esperar que el valor almacenado sea 8 en positivo, 
+//    lo que realmente ocurre es diferente. El tipo `unsigned int` solo puede 
+//    representar valores positivos o cero. Al asignarle un número negativo, 
+//    el compilador realiza una conversión implícita utilizando aritmética 
+//    de módulo sobre la base del rango del tipo.
+//
+//    Por ejemplo, en un sistema donde `unsigned int` es de 32 bits, su rango 
+//    va de 0 a 4.294.967.295. Al asignar -8, el compilador hace esta operación:
+//
+//        unsigned_value = (unsigned int)(-8)
+//                      = 2^32 + (-8)
+//                      = 4.294.967.296 - 8
+//                      = 4.294.967.288
+	
+	int p;
+	
+	while((bool)(p=PI) and 1){
+		cout<<"Hola estoy en bucle!"
+	}
+	
+//	Aca se esta asignandole primero a p el valor de PI y luego se lo castea explicitamente a un bool
+//	por lo que siempre será 1, ya que cualquier valor distinto del cero se toma como verdadero
+	
+	
+	
+	
+	
 	return 0;
 }
 
